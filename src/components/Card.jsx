@@ -19,15 +19,15 @@ const Card = () => {
 
       <div className="body">
         <div className="field">
-          <img src="public/images/bag.png" alt="" />
+          <img src="/images/bag.png" alt="" />
           <p>İzmir Bayraklı</p>
         </div>
         <div className="field">
-          <img src="public/images/bag.png" alt="" />
+          <img src="/images/bag.png" alt="" />
           <p>İzmir Bayraklı</p>
         </div>
         <div className="field">
-          <img src="public/images/bag.png" alt="" />
+          <img src="/images/bag.png" alt="" />
           <p>İzmir Bayraklı</p>
         </div>
         <div className="status">
