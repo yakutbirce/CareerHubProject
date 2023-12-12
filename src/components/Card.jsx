@@ -1,37 +1,64 @@
 import React from "react";
 
-const Card = () => {
+const Card = ({ job }) => {
+  const { id, position, company, location, status, type, date } = job;
+
+  const getClassName = () => {
+    switch (job.status) {
+      case "Devam Ediyor":
+        return "pending";
+      case "Reddedildi":
+        return "rejected";
+      case "Mülakat":
+        return "interview";
+
+      default:
+        return "default";
+    }
+  };
+
+  const spanColor = {
+    backgroundColor:
+      status === "Mülakat"
+        ? "green"
+        : status === "Reddedildi"
+        ? "red"
+        : status === "Devam Ediyor"
+        ? "orange"
+        : null,
+  };
+
   return (
     <div className="card">
-      {/*üst kısım */}
+      {/*Üst Kısım*/}
       <div className="head">
         <div className="letter">
-          <p>U</p>
+          <p>{company[0]}</p>
         </div>
 
         <div className="info">
-          <p>Front End Developer</p>
-          <p>CodeCraft Studios</p>
+          <p>{position}</p>
+          <p>{company}</p>
         </div>
       </div>
 
-      {/*Alt Kısım */}
+      {/*Alt Kısım*/}
 
       <div className="body">
         <div className="field">
           <img src="/images/bag.png" alt="" />
-          <p>İzmir Bayraklı</p>
+          <p>{location}</p>
         </div>
         <div className="field">
           <img src="/images/bag.png" alt="" />
-          <p>İzmir Bayraklı</p>
+          <p>{type}</p>
         </div>
         <div className="field">
           <img src="/images/bag.png" alt="" />
-          <p>İzmir Bayraklı</p>
+          <p>{date}</p>
         </div>
         <div className="status">
-          <span>Devam Ediyor</span>
+          <span style={spanColor}>{status}</span>
         </div>
       </div>
     </div>
