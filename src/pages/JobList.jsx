@@ -3,7 +3,10 @@ import Card from "../components/Card";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setJobs, setError } from "../redux/jobSlice";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Filter from "../components/Filter";
+
 const JobList = () => {
   const state = useSelector((store) => store);
   const dispatch = useDispatch();
@@ -23,6 +26,7 @@ const JobList = () => {
 
   return (
     <div className="list-page">
+      <Filter />
       <h3 className="job-count">
         Bulunan (16) iş arasından (16) tanesini görüntülüyorsunuz.
       </h3>
@@ -38,7 +42,6 @@ const JobList = () => {
           <p>Üzgünüz bir hata oluştu</p>
         )}
       </section>
-      <ToastContainer />
     </div>
   );
 };

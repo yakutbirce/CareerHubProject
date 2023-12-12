@@ -6,21 +6,21 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { addJob } from "../redux/jobSlice";
 const AddJob = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Form Datasını Oluşturma
+    //Form Data Oluşturma
     const form = new FormData(e.target);
-    //Formdaki Değerlerden Bir Obje Oluşturma
+    //formdaki değerlerden bir obje oluşturma
     const newJob = Object.fromEntries(form.entries());
     if (!newJob.type || !newJob.status) {
       toast.info("tüm alanları doldurunuz");
       return;
     }
-    //unique id ekleme
+    // unique id ekleme
     newJob.id = v4();
     //tarih ekleme
     newJob.date = new Date().toLocaleDateString();
@@ -78,8 +78,6 @@ const AddJob = () => {
           <button>Ekle</button>
         </div>
       </form>
-
-      <ToastContainer />
     </div>
   );
 };
