@@ -1,7 +1,12 @@
 import React from "react";
 import { sortOption, statusOption, typeOption } from "../helpers/constants";
 import { useDispatch } from "react-redux";
-import { filterBySearch } from "../redux/jobSlice";
+import {
+  filterBySearch,
+  filterByStatus,
+  filterByType,
+  sortJobs,
+} from "../redux/jobSlice";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -19,7 +24,11 @@ const Filter = () => {
         </div>
         <div>
           <label htmlFor="">Durum</label>
-          <select name="status" id="">
+          <select
+            name="status"
+            id=""
+            onChange={(e) => dispatch(filterByStatus(e.target.value))}
+          >
             <option disabled selected>
               Seçiniz
             </option>
@@ -30,7 +39,11 @@ const Filter = () => {
         </div>
         <div>
           <label htmlFor="">Tür</label>
-          <select name="type" id="">
+          <select
+            name="type"
+            id=""
+            onChange={(e) => dispatch(filterByType(e.target.value))}
+          >
             <option disabled selected>
               Seçiniz
             </option>
@@ -41,7 +54,11 @@ const Filter = () => {
         </div>
         <div>
           <label htmlFor="">Sırala</label>
-          <select name="status" id="">
+          <select
+            name="status"
+            id=""
+            onChange={(e) => dispatch(sortJobs(e.target.value))}
+          >
             <option disabled selected>
               Seçiniz
             </option>

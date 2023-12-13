@@ -28,12 +28,26 @@ const jobSlice = createSlice({
             const query = action.payload.toLowerCase();
             // filtreleme işlemini güncelleme /*=== query dediğimde tam eşleşme aradı, bu yüzden include kullandım. */
             const filter = state.mainJobs.filter((job) => job.company.toLowerCase().includes(query))
-            state.jobs = filter
+            state.jobs = filter;
+        },
+        filterByStatus: (state, action) => {
+            const filtered = state.mainJobs.filter((job) => job.status === action.payload)
+            //state güncelleme
+            state.jobs = filtered
+        },
+        filterByType: (state, action) => {
+            state.jobs = state.mainJobs.filter((job) => job.type === action.payload)
+        },
+        sortJobs: (state, action) => {
+            switch (action.payload) {
+                case 'A-Z':
+                    state.jobs.sort((a, b) => a.company.localeCompare(b.company))
+            }
         }
     }
 })
 
-export const { setJobs, setError, addJob, filterBySearch } = jobSlice.actions;
+export const { setJobs, setError, addJob, filterBySearch, filterByStatus, filterByType, sortJobs } = jobSlice.actions;
 
 
 
