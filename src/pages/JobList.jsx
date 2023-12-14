@@ -36,7 +36,7 @@ const JobList = () => {
         tanesini görüntülüyorsunuz.
       </h3>
 
-      <section className="jon-list">
+      <section className="job-list">
         {!state.initialized && <p>Yükleniyor...</p>}
         {state.initialized && !state.isError ? (
           state.jobs.map((job) => (

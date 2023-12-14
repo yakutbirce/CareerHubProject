@@ -34,7 +34,12 @@ const Card = ({ job }) => {
   };
 
   const handleDelete = () => {
-    dispatch(deleteJob(id));
+    const isConfirmed = window.confirm(
+      "Bu işi silmek istediğinizden emin misiniz?"
+    );
+    if (isConfirmed) {
+      dispatch(deleteJob(id));
+    }
   };
 
   const handleEdit = () => {
