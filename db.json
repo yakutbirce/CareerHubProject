@@ -3,7 +3,7 @@
     {
       "id": 1,
       "position": "Frontend Developer",
-      "company": "CodeCraft Studios",
+      "company": "CodeCraftStudios",
       "location": "İzmir/Bayraklı",
       "status": "Devam Ediyor",
       "type": "Tam Zamanlı",
@@ -16,7 +16,7 @@
       "location": "İstanbul/Üsküdar",
       "status": "Mülakat",
       "type": "Tam Zamanlı",
-      "date": "3/29/2023"
+      "date": "29/3/2023"
     },
     {
       "id": 3,
@@ -57,11 +57,11 @@
     {
       "id": 7,
       "position": "Frontend Developer",
-      "company": "CodeCraft Studios",
+      "company": "CodeCraftStudios",
       "location": "İzmir/Bayraklı",
       "status": "Devam Ediyor",
       "type": "Tam Zamanlı",
-      "date": "1/17/2021"
+      "date": "17/1/2021"
     },
     {
       "id": 8,
@@ -79,7 +79,7 @@
       "location": "Ankara/Çankaya",
       "status": "Devam Ediyor",
       "type": "Yarı Zamanlı",
-      "date": "3/28/2023"
+      "date": "28/3/2023"
     },
     {
       "id": 10,
@@ -88,13 +88,13 @@
       "location": "Menlo Park",
       "status": "Reddedildi",
       "type": "Uzaktan",
-      "date": "3/28/2023"
+      "date": "30/4/2023"
     },
     {
       "id": "c5556876-e3f3-4e90-a98a-553864d9aa17",
       "position": "React Native",
       "company": "CGI",
-      "location": "Montreal, Quebec",
+      "location": "Uzaktan",
       "status": "Devam Ediyor",
       "type": "Tam Zamanlı",
       "date": "10/2/2023"

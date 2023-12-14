@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { sortOption, statusOption, typeOption } from "../helpers/constants";
 import { useDispatch } from "react-redux";
 import {
+  clearFilters,
   filterBySearch,
   filterByStatus,
   filterByType,
@@ -10,6 +11,20 @@ import {
 
 const Filter = () => {
   const dispatch = useDispatch();
+
+  const inputRef = useRef();
+  const typeRef = useRef();
+  const statusRef = useRef();
+  const sortRef = useRef();
+
+  const handleReset = () => {
+    dispatch(clearFilters());
+    inputRef.current.value = "";
+    typeRef.current.value = "Seçiniz";
+    statusRef.current.value = "Seçiniz";
+    sortRef.current.value = "Seçiniz";
+  };
+
   return (
     <div className="filter-sec">
       <h2>Filtreleme Seçenekleri</h2>
@@ -17,6 +32,7 @@ const Filter = () => {
         <div>
           <label htmlFor="">Arama</label>
           <input
+            ref={inputRef}
             onChange={(e) => dispatch(filterBySearch(e.target.value))}
             type="text"
             placeholder="ör: amazon"
@@ -25,6 +41,7 @@ const Filter = () => {
         <div>
           <label htmlFor="">Durum</label>
           <select
+            ref={statusRef}
             name="status"
             id=""
             onChange={(e) => dispatch(filterByStatus(e.target.value))}
@@ -40,6 +57,7 @@ const Filter = () => {
         <div>
           <label htmlFor="">Tür</label>
           <select
+            ref={typeRef}
             name="type"
             id=""
             onChange={(e) => dispatch(filterByType(e.target.value))}
@@ -55,6 +73,7 @@ const Filter = () => {
         <div>
           <label htmlFor="">Sırala</label>
           <select
+            ref={sortRef}
             name="status"
             id=""
             onChange={(e) => dispatch(sortJobs(e.target.value))}
@@ -69,7 +88,9 @@ const Filter = () => {
         </div>
 
         <div>
-          <button type="button">Filtreleri Temizle</button>
+          <button type="button" onClick={handleReset}>
+            Filtreleri Temizle
+          </button>
         </div>
       </form>
     </div>

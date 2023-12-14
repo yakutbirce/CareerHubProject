@@ -28,7 +28,8 @@ const JobList = () => {
     <div className="list-page">
       <Filter />
       <h3 className="job-count">
-        Bulunan (16) iş arasından (16) tanesini görüntülüyorsunuz.
+        Bulunan ({state.mainJobs.length}) iş arasından {state.jobs.length}{" "}
+        tanesini görüntülüyorsunuz.
       </h3>
 
       <section className="jon-list">
