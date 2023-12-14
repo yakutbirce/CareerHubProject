@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
+import Modal from "../components/Modal";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setJobs, setError } from "../redux/jobSlice";
@@ -10,19 +11,22 @@ import Filter from "../components/Filter";
 const JobList = () => {
   const state = useSelector((store) => store);
   const dispatch = useDispatch();
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     axios
       .get("http://localhost:3050/jobs")
-      .then(
-        (
-          res //console.log(res.data)//
-        ) => dispatch(setJobs(res.data))
-      )
+      .then((res) => dispatch(setJobs(res.data)))
       .catch((error) => dispatch(setError(error)));
   }, []);
 
-  // console.log(state);
+  const openModal = (job) => {
+    setSelectedJob(job);
+  };
+
+  const closeModal = () => {
+    setSelectedJob(null);
+  };
 
   return (
     <div className="list-page">
@@ -33,16 +37,21 @@ const JobList = () => {
       </h3>
 
       <section className="jon-list">
-        {/*Eğerki API den cevab bekleniyorsa*/}
         {!state.initialized && <p>Yükleniyor...</p>}
         {state.initialized && !state.isError ? (
-          state.jobs.map((job) => {
-            return <Card key={job.id} job={job} />;
-          })
+          state.jobs.map((job) => (
+            <div key={job.id}>
+              <Card job={job} />
+            </div>
+          ))
         ) : (
           <p>Üzgünüz bir hata oluştu</p>
         )}
       </section>
+
+      {selectedJob && <Modal job={selectedJob} closeModal={closeModal} />}
+
+      <ToastContainer />
     </div>
   );
 };

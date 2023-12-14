@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteJob } from "../redux/jobSlice";
+import Modal from "./Modal"; // Modal bileşenini import et
 
 const Card = ({ job }) => {
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal'ın açık/kapalı durumunu takip etmek için state ekledik
+
   const { id, position, company, location, status, type, date } = job;
 
   const getClassName = () => {
@@ -11,7 +17,6 @@ const Card = ({ job }) => {
         return "rejected";
       case "Mülakat":
         return "interview";
-
       default:
         return "default";
     }
@@ -28,9 +33,20 @@ const Card = ({ job }) => {
         : null,
   };
 
+  const handleDelete = () => {
+    dispatch(deleteJob(id));
+  };
+
+  const handleEdit = () => {
+    setIsModalOpen(true); // Düzenle butonuna tıklandığında modal'ı aç
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false); // Modal kapatıldığında state'i güncelle
+  };
+
   return (
     <div className="card">
-      {/*Üst Kısım*/}
       <div className="head">
         <div className="letter">
           <p>{company[0]}</p>
@@ -41,8 +57,6 @@ const Card = ({ job }) => {
           <p>{company}</p>
         </div>
       </div>
-
-      {/*Alt Kısım*/}
 
       <div className="body">
         <div className="field">
@@ -61,6 +75,18 @@ const Card = ({ job }) => {
           <span style={spanColor}>{status}</span>
         </div>
       </div>
+
+      <div className="button-container">
+        <button className="delete-button" onClick={handleDelete}>
+          Sil
+        </button>
+        <button className="edit-button" onClick={handleEdit}>
+          Düzenle
+        </button>
+      </div>
+
+      {/* Modal'ı duruma göre render et */}
+      {isModalOpen && <Modal job={job} closeModal={closeModal} />}
     </div>
   );
 };

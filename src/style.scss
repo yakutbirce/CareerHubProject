@@ -109,9 +109,16 @@ header {
     }
 
     .status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 10px 20px;
         border-radius: 10px;
+        flex: 1; /* Yatay genişliği eşit paylaş */
       }
 
       .interview {
@@ -184,4 +191,74 @@ header {
 .filter-sec {
   @extend .add-sec; /*Miras alma*/
   max-width: 1000px;
+}
+
+.delete-button,
+.edit-button {
+  background-color: black !important;
+  border-radius: 10px;
+  color: white !important;
+  transition: all 300ms;
+  cursor: pointer;
+  padding: 10px 40px;
+}
+
+.delete-button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
+}
+
+.edit-button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; // İstenilen genişliği verebilirsiniz
+  height: 430px; // İstenilen yüksekliği verebilirsiniz
+  background: rgba(209, 39, 130, 0.432);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modal h2 {
+  text-align: center; // Başlığı ortala
+  color: rgb(240, 233, 233);
+  margin-bottom: 15px;
+}
+
+.input-style {
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  padding: 5px 5px 5px 5px;
+  font-family: "poppins";
+}
+
+.save-button,
+.cancel-button {
+  background-color: black !important;
+  border-radius: 10px;
+  color: white !important;
+  transition: all 300ms;
+  cursor: pointer;
+  padding: 10px 40px;
+}
+
+.save-button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
+}
+
+.cancel-button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
 }

@@ -5,7 +5,7 @@ const initialState = {
     jobs: [],
     initialized: false,
     isError: false
-}
+};
 
 const jobSlice = createSlice({
     name: 'jobs',
@@ -13,7 +13,7 @@ const jobSlice = createSlice({
     reducers: {
         setJobs: (state, action) => {
             state.jobs = action.payload;
-            state.mainJobs = action.payload
+            state.mainJobs = action.payload;
             state.initialized = true;
             state.isError = false;
         },
@@ -22,17 +22,31 @@ const jobSlice = createSlice({
             state.isError = true;
         },
         addJob: (state, action) => {
-            state.jobs.push(action.payload)
+            state.jobs.push(action.payload);
+            state.mainJobs.push(action.payload);
+        },
+        deleteJob: (state, action) => {
+            const jobId = action.payload;
+            const updatedJobs = state.mainJobs.filter(job => job.id !== jobId);
+            state.mainJobs = updatedJobs;
+            state.jobs = updatedJobs;
+        },
+        editJob: (state, action) => {
+            const editedJob = action.payload;
+            const index = state.mainJobs.findIndex(job => job.id === editedJob.id);
+
+            if (index !== -1) {
+                state.mainJobs[index] = editedJob;
+                state.jobs = [...state.mainJobs];
+            }
         },
         filterBySearch: (state, action) => {
             const query = action.payload.toLowerCase();
-            // filtreleme işlemini güncelleme /*=== query dediğimde tam eşleşme aradı, bu yüzden include kullandım. */
             const filter = state.mainJobs.filter((job) => job.company.toLowerCase().includes(query))
             state.jobs = filter;
         },
         filterByStatus: (state, action) => {
             const filtered = state.mainJobs.filter((job) => job.status === action.payload)
-            //state güncelleme
             state.jobs = filtered
         },
         filterByType: (state, action) => {
@@ -52,17 +66,14 @@ const jobSlice = createSlice({
                 case 'En Eski':
                     state.jobs.sort((a, b) => new Date(a.date) - new Date(b.date))
                     break;
-
             }
         },
         clearFilters: (state) => {
             state.jobs = state.mainJobs
         }
     }
-})
+});
 
-export const { setJobs, setError, addJob, filterBySearch, filterByStatus, filterByType, sortJobs, clearFilters } = jobSlice.actions;
-
-
+export const { setJobs, setError, addJob, deleteJob, filterBySearch, filterByStatus, filterByType, sortJobs, clearFilters, editJob } = jobSlice.actions;
 
 export default jobSlice.reducer;
