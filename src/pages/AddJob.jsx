@@ -112,6 +112,15 @@ const AddJob = () => {
           />
         </div>
         <div>
+          <label htmlFor="date">Tarih</label>
+          <input
+            type="date"
+            id="date"
+            onChange={formik.handleChange}
+            value={formik.values.date}
+          />
+        </div>
+        <div>
           <label htmlFor="status">Durum</label>
           <select
             name="status"
