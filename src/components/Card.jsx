@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteJob } from "../redux/jobSlice";
-import Modal from "./Modal"; // Modal bileşenini import et
+import Modal from "./Modal";
 
 const Card = ({ job }) => {
   const dispatch = useDispatch();

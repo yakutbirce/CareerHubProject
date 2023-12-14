@@ -118,7 +118,7 @@ header {
         justify-content: center;
         padding: 10px 20px;
         border-radius: 10px;
-        flex: 1; /* Yatay genişliği eşit paylaş */
+        flex: 1;
       }
 
       .interview {
@@ -218,8 +218,8 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px; // İstenilen genişliği verebilirsiniz
-  height: 430px; // İstenilen yüksekliği verebilirsiniz
+  width: 500px;
+  height: 430px;
   background: rgba(209, 39, 130, 0.432);
   display: flex;
   justify-content: center;
@@ -230,7 +230,7 @@ header {
 }
 
 .modal h2 {
-  text-align: center; // Başlığı ortala
+  text-align: center;
   color: rgb(240, 233, 233);
   margin-bottom: 15px;
 }
