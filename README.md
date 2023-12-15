@@ -413,6 +413,6 @@ Bu style.scss dosyası, iş takip uygulamasının görünümünü düzenlemek ve
 
 ## `Deploy`
 
-Projenin canlıya alınmış hali : [Career Hub](https://your-deployed-app-link.com)
+Projenin canlıya alınmış hali : [Career Hub]([https://your-deployed-app-link.com](https://careertrackr.netlify.app/)https://careertrackr.netlify.app/)
 
 ---
