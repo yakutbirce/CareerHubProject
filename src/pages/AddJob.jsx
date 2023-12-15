@@ -31,6 +31,7 @@ const AddJob = () => {
       location: Yup.string().required("Lokasyon alanı zorunludur!"),
       status: Yup.string().required("Durum alanı zorunludur!"),
       type: Yup.string().required("Tür alanı zorunludur!"),
+      date: Yup.string().required("Tarih alanı zorunludur!"),
     }),
 
     onSubmit: (values) => {
@@ -46,6 +47,7 @@ const AddJob = () => {
       form.append("location", values.location);
       form.append("status", values.status);
       form.append("type", values.type);
+      form.append("date", values.date);
 
       //formdaki değerlerden bir obje oluşturma
       const newJob = Object.fromEntries(form.entries());
