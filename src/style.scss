@@ -187,6 +187,11 @@ header {
 .filter-sec {
   @extend .add-sec;
   max-width: 1000px;
+
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
 }
 
 .button-container {
@@ -195,6 +200,7 @@ header {
   margin-top: 10px;
 }
 
+.detail-button,
 .delete-button,
 .edit-button {
   background-color: black !important;
@@ -218,6 +224,11 @@ header {
   box-shadow: 0 0 30px rgba(209, 39, 130, 1);
 }
 
+.detail-button:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
+}
+
 .modal-overlay {
   position: fixed;
   top: 50%;
@@ -225,7 +236,7 @@ header {
   transform: translate(-50%, -50%);
   width: 500px;
   height: 430px;
-  background: rgba(209, 39, 130, 0.432);
+  background: rgba(75, 20, 107, 0.274);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -248,6 +259,7 @@ header {
   font-family: "poppins";
 }
 
+.detail-button,
 .save-button,
 .cancel-button {
   background-color: black !important;
@@ -258,12 +270,8 @@ header {
   padding: 10px 40px;
 }
 
+.cancel-button,
 .save-button:hover {
-  transform: scale(0.95);
-  box-shadow: 0 0 30px rgba(209, 39, 130, 1);
-}
-
-.cancel-button:hover {
   transform: scale(0.95);
   box-shadow: 0 0 30px rgba(209, 39, 130, 1);
 }

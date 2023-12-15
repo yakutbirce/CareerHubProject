@@ -5,7 +5,8 @@ import Modal from "./Modal";
 
 const Card = ({ job }) => {
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false); // Modal'ın açık/kapalı durumunu takip etmek için state ekledik
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   const { id, position, company, location, status, type, date } = job;
 
@@ -43,11 +44,11 @@ const Card = ({ job }) => {
   };
 
   const handleEdit = () => {
-    setIsModalOpen(true); // Düzenle butonuna tıklandığında modal'ı aç
+    setIsModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false); // Modal kapatıldığında state'i güncelle
+  const toggleDetail = () => {
+    setIsDetailOpen(!isDetailOpen);
   };
 
   return (
@@ -63,23 +64,25 @@ const Card = ({ job }) => {
         </div>
       </div>
 
-      <div className="body">
-        <div className="field">
-          <img src="/images/bag.png" alt="" />
-          <p>{location}</p>
+      {isDetailOpen ? (
+        <div className="body">
+          <div className="field">
+            <img src="/images/bag.png" alt="" />
+            <p>{location}</p>
+          </div>
+          <div className="field">
+            <img src="/images/bag.png" alt="" />
+            <p>{type}</p>
+          </div>
+          <div className="field">
+            <img src="/images/bag.png" alt="" />
+            <p>{date}</p>
+          </div>
+          <div className="status">
+            <span style={spanColor}>{status}</span>
+          </div>
         </div>
-        <div className="field">
-          <img src="/images/bag.png" alt="" />
-          <p>{type}</p>
-        </div>
-        <div className="field">
-          <img src="/images/bag.png" alt="" />
-          <p>{date}</p>
-        </div>
-        <div className="status">
-          <span style={spanColor}>{status}</span>
-        </div>
-      </div>
+      ) : null}
 
       <div className="button-container">
         <button className="delete-button" onClick={handleDelete}>
@@ -88,10 +91,14 @@ const Card = ({ job }) => {
         <button className="edit-button" onClick={handleEdit}>
           Düzenle
         </button>
+        <button className="detail-button" onClick={toggleDetail}>
+          Detay
+        </button>
       </div>
 
-      {/* Modal'ı duruma göre render et */}
-      {isModalOpen && <Modal job={job} closeModal={closeModal} />}
+      {isModalOpen && (
+        <Modal job={job} closeModal={() => setIsModalOpen(false)} />
+      )}
     </div>
   );
 };

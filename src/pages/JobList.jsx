@@ -11,6 +11,7 @@ import Filter from "../components/Filter";
 const JobList = () => {
   const state = useSelector((store) => store);
   const dispatch = useDispatch();
+  // State tanımına detayları gösteren iş değişkeni eklendi
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ const JobList = () => {
       .catch((error) => dispatch(setError(error)));
   }, []);
 
+  // Detayları gösteren fonksiyon
   const openModal = (job) => {
     setSelectedJob(job);
   };
@@ -49,6 +51,7 @@ const JobList = () => {
         )}
       </section>
 
+      {/*Detayları gösteren iş bileşeni eklendi */}
       {selectedJob && <Modal job={selectedJob} closeModal={closeModal} />}
 
       <ToastContainer />
