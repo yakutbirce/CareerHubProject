@@ -22,11 +22,11 @@ Proje dosyalarını bilgisayarınıza indirmek ve çalıştırmak için aşağı
 - [json-server](https://github.com/typicode/json-server)
 - [uuid](https://www.npmjs.com/package/uuid)
 
-## Bileşenler ve Sayfalar
+## Componentler ve Sayfalar
 
-- **Card.jsx:** İş kartı bileşeni.
-- **Filter.jsx:** Filtre bileşeni.
-- **Header.jsx:** Sayfa başlık bileşeni.
+- **Card.jsx:** İş kartı componenti.
+- **Filter.jsx:** Filtre componenti.
+- **Header.jsx:** Sayfa başlık componenti.
 - **AddJob.jsx:** İş ekleme sayfası.
 - **JobList.jsx:** İş listesi sayfası.
 
@@ -40,16 +40,15 @@ Proje, iş verilerini yönetmek için `json-server` ve `db.json` kullanmaktadır
 
 ---
 
-# Card Bileşeni
+# Card Componenti
 
-`Card` bileşeni, işleri temsil etmek için kullanılan bir bileşendir. Her bir işin ayrıntılarını gösterir, düzenlenmesine ve silinmesine olanak tanır. Ayrıca, işin durumuna göre renkli bir etiket gösterir.
+`Card` componenti, işleri temsil etmek için kullanılan bir componenttir. Her bir işin ayrıntılarını gösterir, düzenlenmesine ve silinmesine olanak tanır. Ayrıca, işin durumuna göre renkli bir etiket gösterir.
 
 ## Kullanılan Teknolojiler
 
 - React
 - Redux Toolkit
 - react-redux
-- Modal bileşeni
 
 ## Kullanılan Hooks ve Fonksiyonlar
 
@@ -58,7 +57,7 @@ Proje, iş verilerini yönetmek için `json-server` ve `db.json` kullanmaktadır
 
 ## İşlevselliği ve Bileşenin Özellikleri
 
-- `job` prop'u üzerinden gelen veriyi kullanarak, her bir işin detaylarını gösterir.
+- `job` prop'u üzerinden gelen veriyi kullanarak her bir işin detaylarını gösterir.
 - `isModalOpen` state'i, modal'ın açık veya kapalı olup olmadığını takip eder.
 - `getClassName` fonksiyonu, işin durumuna bağlı olarak CSS sınıfını belirler.
 - `spanColor` objesi, iş durumuna göre etiket rengini belirler.
@@ -168,7 +167,7 @@ Proje, iş verilerini yönetmek için `json-server` ve `db.json` kullanmaktadır
 
 # Constants Dosyası
 
-`constants.js` dosyası, projede kullanılan sabit verileri içerir. Bu sabitler, filtreleme seçenekleri ve sıralama seçenekleri gibi öğeleri tanımlar.
+`constants.js` dosyası, projede kullanılan sabit verileri içerir. Bu sabitler, filtreleme seçenekleri ve sıralama seçenekleri gibi ögeleri tanımlar.
 
 ## Kullanılan Sabitler
 
@@ -233,7 +232,7 @@ export const sortOption = ["A-Z", "Z-A", "En Yeni", "En Eski"];
 
 # JobList Sayfası
 
-`JobList` sayfası, iş listesini görüntülemek için kullanılan bir bileşeni içerir. Kullanıcıya filtreleme seçenekleri, iş sayısı bilgisi ve her bir işi gösteren kartları içerir.
+`JobList` sayfası, iş listesini görüntülemek için kullanılan bir bileşeni içerir. Kullanıcıya filtreleme seçenekleri, iş sayısı, bilgisi ve her bir işi gösteren kartları içerir.
 
 ## Kullanılan Teknolojiler
 
@@ -403,5 +402,17 @@ export const sortOption = ["A-Z", "Z-A", "En Yeni", "En Eski"];
 # style.scss Dosyası
 
 Bu style.scss dosyası, iş takip uygulamasının görünümünü düzenlemek ve stiline özgü özellikleri belirlemek için kullanılan SCSS (Sassy CSS) dosyasıdır.
+
+---
+
+## `Responsive Preview`
+
+![Responsive Design Preview](/public/images/responsive.png)
+
+---
+
+## `Deploy`
+
+Projenin canlıya alınmış hali : [Career Hub](https://your-deployed-app-link.com)
 
 ---
